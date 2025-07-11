@@ -22,6 +22,15 @@ public class AgendaTelefonica {
         return null;
     }
 
+    public Contato buscarContatoPorNumero(String n) {
+        for (Contato contato: lista_de_contatos) {
+            if (contato.getNumero_telefone().equalsIgnoreCase(n)) {
+                return contato;
+            }
+        }
+        return null;
+    }
+
     public void atualizarContato(String n, Contato c) {
         for (int i = 0; i < lista_de_contatos.size(); i++) {
             if (lista_de_contatos.get(i).getNome().equalsIgnoreCase(n)) {

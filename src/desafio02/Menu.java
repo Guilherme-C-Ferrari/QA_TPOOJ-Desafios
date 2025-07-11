@@ -64,11 +64,13 @@ public class Menu {
 
         System.out.println("Digite o nome do contato que deseja adicionar:");
         String input = scanner.nextLine();
+        System.out.println("Digite o numero do contato que deseja adicionar:");
+        String number = scanner.nextLine();
         if (agenda.buscarContato(input) != null) {
-            System.out.println("Contato já existe.");
+            System.out.println("Nome de contato já existe.");
+        } else if (agenda.buscarContatoPorNumero(number) != null) {
+            System.out.println("Número de contato já usado em outro contato.");
         } else {
-            System.out.println("Digite o numero do contato que deseja adicionar:");
-            String number = scanner.nextLine();
             Contato c = new Contato(input, number);
             agenda.adicionarContato(c);
             System.out.println("Contato adicionado com sucesso.");
@@ -114,11 +116,15 @@ public class Menu {
         } else {
             System.out.println("Digite o novo nome do contato que deseja atualizar:");
             String new_name = scanner.nextLine();
+            System.out.println("Digite o novo numero do contato que será atualizado:");
+            String number = scanner.nextLine();
             if (agenda.buscarContato(new_name) != null && !Objects.equals(input, new_name)) {
                 System.out.println("Nome de contato já usado em outro contato");
+            } else if (agenda.buscarContatoPorNumero(number) != null
+                    && !Objects.equals(agenda.buscarContato(input).getNumero_telefone(), number)
+                    ) {
+                System.out.println("Número de contato já usado em outro contato.");
             } else {
-                System.out.println("Digite o numero do contato que será atualizado:");
-                String number = scanner.nextLine();
                 Contato c = new Contato(new_name, number);
                 agenda.atualizarContato(input, c);
                 System.out.println("Contato atualizado com sucesso.");
