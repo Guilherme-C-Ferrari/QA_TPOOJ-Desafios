@@ -1,4 +1,5 @@
 package desafio02;
+import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -126,6 +127,11 @@ public class Menu {
     }
 
     public static void listarContatoNaAgenda(AgendaTelefonica agenda) {
-        agenda.listarContatos();
+        List<Contato> lista = agenda.getlistaContatos();
+        for (Contato contato: lista) {
+            System.out.println("------------------------------------------");
+            System.out.println("Nome: " + contato.getNome());
+            System.out.println("Numero: " + contato.getNumero_telefone());
+        }
     }
 }

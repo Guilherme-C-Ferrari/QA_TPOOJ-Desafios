@@ -31,11 +31,7 @@ public class AgendaTelefonica {
         }
     }
 
-    public void listarContatos() {
-        for (Contato contato: lista_de_contatos) {
-            System.out.println("------------------------------------------");
-            System.out.println("Nome: " + contato.getNome());
-            System.out.println("Numero: " + contato.getNumero_telefone());
-        }
+    public List<Contato> getlistaContatos() {
+        return lista_de_contatos;
     }
 }
