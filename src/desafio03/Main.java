@@ -7,13 +7,13 @@ public class Main {
     public static void main(String[] args) {
         // Cenário 1 -  carro novo - do centro para o bairro A
 
-        // instanciar implementação de simulaodor
+        // Instanciar implementação de simulador
         SimuladorDeOrcamentoPadrao simulador = new SimuladorDeOrcamentoPadrao();
 
-        // instanciar implementação de veiculo
+        // Instanciar implementação de veiculo
         VeiculoPadrao carroNovo = new VeiculoPadrao(TipoVeiculo.CARRO, EstadoConservacao.NOVO);
 
-        // instanciar trajeto
+        // Instanciar trajeto
         TrajetoEntreBairros centroParaBairroA = new TrajetoEntreBairros(Distancias.CParaA.getKm());
 
         double custoCenario1 = simulador.calcularCustoTotal(carroNovo, centroParaBairroA);
